@@ -41,6 +41,8 @@
 			<main>
 				@foreach ($project->releases as $release)
 				<h4>{{ $release->name }} ({{ $release->slug }})</h4>
+				<b>Uploaded by:</b> {{ $release->author->display_name }}
+
 				<hr>
 
 				<ul>

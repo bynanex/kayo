@@ -16,6 +16,14 @@ class Project extends Model
 	}
 
 	/**
+	 * Get the user who created this project.
+	 */
+	public function author()
+	{
+		return $this->belongsTo('App\User');
+	}
+
+	/**
 	 * Get the releases assigned to this project.
 	 */
 	public function releases()

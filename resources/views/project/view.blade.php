@@ -39,7 +39,7 @@
 		
 		<div class="container">
 			<main>
-				Project information goes here.
+				A project created by {{ $project->author->display_name }}.
 			</main>
 			
 			<footer>

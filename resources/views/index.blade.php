@@ -27,7 +27,9 @@
 							<p class="card-text">Project description goes here</p>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted">Last updated: {{ $project->updated_at->diffForHumans() }}</small>
+							<small class="text-muted">
+								{{ $project->releases->count(). ' '.str_plural('release', $project->releases->count()) }}
+							</small>
 						</div>
 					</div>
 				</div>

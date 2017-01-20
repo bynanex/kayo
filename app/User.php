@@ -26,4 +26,20 @@ class User extends Authenticatable
 	protected $hidden = [
 		'password', 'remember_token',
 	];
+
+	/**
+	 * Get the projects owned by this user.
+	 */
+	public function projects()
+	{
+		return $this->hasMany('App\Project', 'author_id');
+	}
+
+	/**
+	 * Get files uploaded by this user.
+	 */
+	public function files()
+	{
+		return $this->hasManyThrough('App\File', 'App\Release', 'author_id', 'uploader_id');
+	}
 }

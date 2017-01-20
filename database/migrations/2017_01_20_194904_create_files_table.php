@@ -15,6 +15,8 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('uploader_id')->unsigned();
+            $table->foreign('uploader_id')->references('id')->on('users');
             $table->string('sha256sum')->unique();
             $table->string('filename');
             $table->string('extension', 32);

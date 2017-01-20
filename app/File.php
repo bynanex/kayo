@@ -55,4 +55,20 @@ class File extends Model
 	public function getExistsAttribute() {
 		return Storage::disk('uploads')->exists($this->rawFilename);
 	}
+
+	/**
+	 * Get releases that use this file.
+	 */
+	public function releases()
+	{
+		return $this->belongsToMany('App\Release', 'release_files');
+	}
+
+	/**
+	 * Get the user who uploaded this file.
+	 */
+	public function uploader()
+	{
+		return $this->belongsTo('App\User');
+	}
 }

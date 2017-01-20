@@ -16,6 +16,22 @@ class Release extends Model
 	}
 
 	/**
+	 * Get the user who created this release.
+	 */
+	public function author()
+	{
+		return $this->belongsTo('App\User');
+	}
+
+	/**
+	 * Get the project this release belongs to.
+	 */
+	public function project()
+	{
+		return $this->belongsTo('App\Project');
+	}
+
+	/**
 	 * Get the files assigned to this release.
 	 */
 	public function files()

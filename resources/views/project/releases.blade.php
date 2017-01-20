@@ -45,7 +45,10 @@
 
 				<ul>
 					@foreach ($release->files as $file)
-						<li>{{ $file->rawFilename }} ({{ $file->formattedSize }})</li>
+						<li>
+							{{ $file->rawFilename }} ({{ $file->formattedSize }})
+							<a href="{{ action('ReleaseController@download', [$project, $release, $file]) }}">[DOWNLOAD]</a>
+						</li>
 					@endforeach
 				</ul>
 				@endforeach

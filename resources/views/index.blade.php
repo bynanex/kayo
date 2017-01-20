@@ -10,10 +10,29 @@
 	</head>
 	<body>
 		<div class="container">
-			<header>kayo</header>
+			<header class="index">kayo</header>
+			
 			<main>
-				Content goes here.
+			@foreach (App\Project::all() as $project)
+				<div class="card-columns">
+					<div class="card text-center">
+						<div class="card-block">
+							<h4 class="card-title">
+								<a href="{{ action('ProjectController@view', [$project->slug]) }}">
+									{{ $project->name }}
+								</a>
+							</h4>
+
+							<p class="card-text">Project description goes here</p>
+						</div>
+						<div class="card-footer">
+							<small class="text-muted">Last updated: {{ $project->updated_at->diffForHumans() }}</small>
+						</div>
+					</div>
+				</div>
+			@endforeach
 			</main>
+			
 			<footer>
 				<p class="float-left">
 					&copy; 2017, aixxe.net

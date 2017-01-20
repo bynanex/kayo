@@ -54,6 +54,7 @@
 							
 							@if ($file->signature)
 							<a href="{{ action('ReleaseController@signature', [$project, $release, $file]) }}">[SIGNATURE]</a>
+							<div><b>Signed by:</b> {{ $file->fingerprint }}</div>
 							@endif
 						</li>
 					@endforeach

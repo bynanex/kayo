@@ -57,6 +57,21 @@ class File extends Model
 	}
 
 	/**
+	 * Get the key fingerprint from the PGP signature.
+	 *
+	 * @return string
+	 */
+	public function getFingerprintAttribute() {
+		$gpg = new \gnupg();
+		$info = $gpg->verify(NULL, $this->signature);
+
+		if ($info !== false && count($info) >= 1)
+			return implode(" ", str_split($info[0]['fingerprint'], 4));
+
+		return 'Unknown';
+	}
+
+	/**
 	 * Get releases that use this file.
 	 */
 	public function releases()

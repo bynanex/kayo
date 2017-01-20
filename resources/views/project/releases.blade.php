@@ -1,3 +1,4 @@
+@include('templates.nav.infobar')
 @include('templates.footer')
 <!DOCTYPE html>
 <html lang="en">
@@ -26,13 +27,7 @@
 
 			<section class="infobar">
 				<div class="container">
-					<ul class="list-inline">
-						<li class="list-inline-item">An item</li>
-						<li class="list-inline-item">An item</li>
-						<li class="list-inline-item">An item</li>
-						<li class="list-inline-item">An item</li>
-						<li class="list-inline-item">An item</li>
-					</ul>
+					@yield('infobar')
 				</div>
 			</section>
 		</header>

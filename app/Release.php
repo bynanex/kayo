@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Release extends Model
 {
     /**
      * Get the route key for the model.
@@ -16,10 +16,10 @@ class Project extends Model
     }
 
     /**
-     * Get the releases assigned to this project.
+     * Get the files assigned to this release.
      */
-    public function releases()
+    public function files()
     {
-        return $this->hasMany('App\Release');
+        return $this->belongsToMany('App\File', 'release_files');
     }
 }

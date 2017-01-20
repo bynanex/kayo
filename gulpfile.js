@@ -17,5 +17,8 @@ elixir((mix) => {
     mix.less('app.less');
     mix.styles('bootstrap.css');
 
-    mix.version(['css/app.css', 'css/bootstrap.css']);
+    mix.version([
+    	'css/app.css',
+    	'css/bootstrap.css'
+    ]);
 });

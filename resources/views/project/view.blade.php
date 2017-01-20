@@ -9,9 +9,31 @@
 		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<header>
-			{{ $project->name }}
-			<nav></nav>
+		<header class="immersive">
+			<div class="container">
+				<div class="float-left">
+					{{ $project->name }}
+				</div>
+
+				<nav class="float-right">
+					<a href="#" class="item active">Overview</a>
+					<a href="#" class="item">Releases</a>
+				</nav>
+
+				<div class="clearfix"></div>
+			</div>
+
+			<section class="infobar">
+				<div class="container">
+					<ul class="list-inline">
+						<li class="list-inline-item">An item</li>
+						<li class="list-inline-item">An item</li>
+						<li class="list-inline-item">An item</li>
+						<li class="list-inline-item">An item</li>
+						<li class="list-inline-item">An item</li>
+					</ul>
+				</div>
+			</section>
 		</header>
 		
 		<div class="container">

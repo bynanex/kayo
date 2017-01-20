@@ -46,8 +46,13 @@
 				<ul>
 					@foreach ($release->files as $file)
 						<li>
-							{{ $file->rawFilename }} ({{ $file->formattedSize }})
+							<div>{{ $file->rawFilename }} ({{ $file->formattedSize }})</div>
+
 							<a href="{{ action('ReleaseController@download', [$project, $release, $file]) }}">[DOWNLOAD]</a>
+							
+							@if ($file->signature)
+							<a href="{{ action('ReleaseController@signature', [$project, $release, $file]) }}">[SIGNATURE]</a>
+							@endif
 						</li>
 					@endforeach
 				</ul>

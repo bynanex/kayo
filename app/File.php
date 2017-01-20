@@ -27,12 +27,12 @@ class File extends Model
 	}
 
 	/**
-	 * Get the MIME type of this file.
+	 * Get the absolute path to the file.
 	 *
 	 * @return string
 	 */
-	public function getMimeTypeAttribute() {
-		return Storage::disk('uploads')->mimeType($this->rawFilename);
+	public function getPathAttribute() {
+		return config('filesystems.disks.uploads.root').DIRECTORY_SEPARATOR.$this->rawFilename;
 	}
 
 	/**
@@ -44,7 +44,7 @@ class File extends Model
 		$size = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
 		$factor = floor((strlen($this->size) - 1) / 3);
 		
-		return sprintf("%.2f", $this->size / pow(1024, $factor)). @$size[$factor];
+		return sprintf("%.2f", $this->size / pow(1024, $factor)).@$size[$factor];
 	}
 
 	/**

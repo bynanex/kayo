@@ -17,4 +17,14 @@ class ProjectController extends Controller
     {
         return view('project.view', ['project' => $project]);
     }
+
+    /**
+     * Displays a list of releases for this project.
+     *
+     * @return void
+     */
+    public function releases(Project $project)
+    {
+        return view('project.releases', ['project' => $project]);
+    }
 }

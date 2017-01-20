@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Storage;
+
 class File extends Model
 {
     /**
@@ -22,6 +24,27 @@ class File extends Model
      */
     public function getRawFilenameAttribute() {
     	return $this->sha256sum.$this->extension;
+    }
+
+    /**
+     * Get the MIME type of this file.
+     *
+     * @return string
+     */
+    public function getMimeTypeAttribute() {
+        return Storage::disk('uploads')->mimeType($this->rawFilename);
+    }
+
+    /**
+     * Format the file size to a human readable string.
+     *
+     * @return string
+     */
+    public function getFormattedSizeAttribute() {
+        $size = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+        $factor = floor((strlen($this->size) - 1) / 3);
+        
+        return sprintf("%.2f", $this->size / pow(1024, $factor)). @$size[$factor];
     }
 
     /**

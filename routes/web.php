@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/{project}', 'ProjectController@view');
+Route::get('/{project}/releases', 'ProjectController@releases');

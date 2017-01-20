@@ -17,8 +17,8 @@
 				</div>
 
 				<nav class="float-right">
-					<a href="{{ action('ProjectController@view', [$project]) }}" class="item active">Overview</a>
-					<a href="{{ action('ProjectController@releases', [$project]) }}" class="item">Releases</a>
+					<a href="{{ action('ProjectController@view', [$project]) }}" class="item">Overview</a>
+					<a href="{{ action('ProjectController@releases', [$project]) }}" class="item active">Releases</a>
 				</nav>
 
 				<div class="clearfix"></div>
@@ -39,7 +39,16 @@
 		
 		<div class="container">
 			<main>
-				Project information goes here.
+				@foreach ($project->releases as $release)
+				<h4>{{ $release->name }} ({{ $release->slug }})</h4>
+				<hr>
+
+				<ul>
+					@foreach ($release->files as $file)
+						<li>{{ $file->rawFilename }} ({{ $file->formattedSize }})</li>
+					@endforeach
+				</ul>
+				@endforeach
 			</main>
 			
 			<footer>

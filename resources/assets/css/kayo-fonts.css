@@ -60,3 +60,9 @@
 
 .icon-gear:before { content: '\e800'; }
 .icon-release:before { content: '\e801'; }
+.icon-check:before { content: '\e802'; }
+.icon-user:before { content: '\e803'; }
+.icon-group:before { content: '\e804'; }
+.icon-book:before { content: '\e805'; }
+.icon-warning:before { content: '\e806'; }
+.icon-clock:before { content: '\e807'; }

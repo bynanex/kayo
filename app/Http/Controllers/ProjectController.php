@@ -25,6 +25,9 @@ class ProjectController extends Controller
 	 */
 	public function releases(Project $project)
 	{
-		return view('project.releases', ['project' => $project]);
+		return view('project.releases', [
+			'project' => $project,
+			'releases' => $project->releases()->orderBy('created_at', 'desc')->get()
+		]);
 	}
 }

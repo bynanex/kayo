@@ -1,0 +1,48 @@
+section.release-sidebar {
+	padding-top: 10px;
+
+	span.badge {
+		padding: 7px 12px;
+		font-weight: 300;
+	}
+	
+	span.release-badge-stable { background: @release-badge-stable; }
+	span.release-badge-experimental { background: @release-badge-experimental; }
+	span.release-badge-nightly { background: @release-badge-nightly; }
+}
+
+section.release-header {
+	font-size: 30px;
+	font-family: @light-font;
+
+	ul.release-info {
+		font-family: @regular-font;
+		font-size: 12.5px;
+	}
+
+	span.release-version {
+		font-family: @regular-font;
+	}
+}
+
+section.release-description {
+	margin: 20px 0 25px 0;
+	line-height: 1.825;
+}
+
+section.release-files {
+	ul {
+		padding-left: 0;
+		list-style-type: none;
+
+		li {
+			font-size: 14px;
+
+			div.release-file-info {
+				padding: 6px 0 0 20px;
+				font-family: monospace;
+				font-size: 12px;
+			}
+		}
+	}
+}

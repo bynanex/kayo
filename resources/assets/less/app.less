@@ -1,9 +1,8 @@
-@import 'variables.less';
 @import (inline) '../css/kayo-fonts.css';
 
-body {
-	background: @background;
-}
+@import 'variables.less';
+@import 'globals.less';
+@import 'releases.less';
 
 header.index {
 	text-align: center;
@@ -40,7 +39,6 @@ header.immersive {
 			display: inline-block;
 			padding: 5px 15px;
 			font-size: 12px;
-			text-decoration: none;
 
 			&:hover, &:focus {
 				background: @navitem-hover-background;
@@ -61,7 +59,7 @@ section.infobar {
 	background: #FFF;
 	color: #000;
 	width: 100%;
-	font-size: 14px;
+	font-size: 12px;
 	margin-bottom: 25px;
 	padding: 10px 0;
 	border-bottom: 1px #d7d7d7 solid;

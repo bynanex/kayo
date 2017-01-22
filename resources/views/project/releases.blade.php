@@ -17,26 +17,79 @@
 		
 		<div class="container">
 			<main>
-				@foreach ($project->releases as $release)
-				<h4>{{ $release->name }} ({{ $release->slug }})</h4>
-				<b>Uploaded by:</b> {{ $release->author->display_name }}
+				@foreach ($releases as $release)
+				<div class="row">
+					<div class="col-2 text-right">
+						<section class="release-sidebar">
+							<span class="badge {{ $release->badgeClass }}">
+								<i class="icon-warning"></i> {{ $release->type }}
+							</span>
+						</section>
+					</div>
+					
+					<div class="col">
+						<section class="release-header">
+							{{ $release->name }} <span class="release-version">v{{ $release->version }}</span>
 
-				<hr>
+							<ul class="release-info list-inline text-muted">
+								<li class="list-inline-item">
+									<i class="icon-user"></i> {{ $release->author->display_name }}
+								</li>
 
-				<ul>
-					@foreach ($release->files as $file)
-						<li>
-							<div>{{ $file->rawFilename }} ({{ $file->formattedSize }})</div>
+								<li class="list-inline-item">
+									<i class="icon-clock"></i>
 
-							<a href="{{ action('ReleaseController@download', [$project, $release, $file]) }}">[DOWNLOAD]</a>
-							
-							@if ($file->signature)
-							<a href="{{ action('ReleaseController@signature', [$project, $release, $file]) }}">[SIGNATURE]</a>
-							<div><b>Signed by:</b> {{ $file->fingerprint }}</div>
+									<span title="{{ $release->created_at }}">
+										{{ $release->created_at->diffForHumans() }}
+									</span>
+								</li>
+							</ul>
+						</section>
+
+						<section class="release-description">
+							{{ $release->description }}
+						</section>
+
+						<section class="release-files">
+							<ul>
+								@foreach ($release->files as $file)
+									<li>
+										<div class="float-left">
+											<i class="icon-release"></i>
+
+											<a href="{{ action('ReleaseController@download', [$project, $release, $file]) }}">
+												{{ $file->filename }}
+											</a>
+										</div>
+
+										<div class="float-right text-muted">
+											{{ $file->formattedSize }}
+										</div>
+
+										<div class="clearfix"></div>
+
+										<div class="release-file-info text-muted">
+											<b>SHA256:</b> {{ $file->sha256sum }}
+											{{--
+											@if ($file->signature)
+											<b>Signed by:</b>
+
+											<a href="{{ action('ReleaseController@signature', [$project, $release, $file]) }}">
+												{{ $file->signed_by }} &mdash; <b>{{ $file->fingerprint }}</b>
+											</a>
+											@endif
+											--}}
+										</div>
+									</li>
+								@endforeach
+							</ul>
+
+							@if (!$loop->last)
+							<hr>
 							@endif
-						</li>
-					@endforeach
-				</ul>
+						</section>
+					</div>
+				</div>
 				@endforeach
 			</main>
 			

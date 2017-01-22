@@ -2,10 +2,12 @@
 <section class="infobar">
 	<div class="container">
 		<ul class="list-inline">
+			@if ($project->language)
 			<li class="list-inline-item">
 				<i class="icon-gear"></i> {{ $project->language }}
 			</li>
-			
+			@endif
+
 			<li class="list-inline-item">
 				<i class="icon-release"></i> {{ $project->releases->count(). ' '.str_plural('release', $project->releases->count()) }}
 			</li>

@@ -12,7 +12,7 @@ class Release extends Model
 	 * @return string
 	 */
 	public function getRouteKeyName() {
-		return 'slug';
+		return 'version';
 	}
 
 	/**
@@ -37,5 +37,22 @@ class Release extends Model
 	public function files()
 	{
 		return $this->belongsToMany('App\File', 'release_files');
+	}
+
+	/**
+	 * Get the badge style class for this release type.
+	 *
+	 * @return string
+	 */
+	public function getBadgeClassAttribute() {
+		// See also: variables.less, releases.less.
+		switch ($this->type) {
+			case 'Stable':
+				return 'release-badge-stable';
+			case 'Experimental':
+				return 'release-badge-experimental';
+			case 'Nightly':
+				return 'release-badge-nightly';
+		}
 	}
 }

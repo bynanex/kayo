@@ -1,4 +1,30 @@
 @font-face {
+	font-family: 'Roboto';
+	src: url('/fonts/Roboto-regular.eot');
+	src: local('Roboto'),
+		url('../fonts/Roboto-regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Roboto-regular.woff2') format('woff2'),
+		url('../fonts/Roboto-regular.woff') format('woff'),
+		url('../fonts/Roboto-regular.ttf') format('truetype'),
+		url('../fonts/Roboto-regular.svg#Roboto') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto Light';
+	src: url('/fonts/Roboto-300/Roboto-300.eot');
+	src: local('Roboto Light'), local('Roboto-Light'),
+		url('../fonts/Roboto-300/Roboto-300.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Roboto-300.woff2') format('woff2'),
+		url('../fonts/Roboto-300.woff') format('woff'),
+		url('../fonts/Roboto-300.ttf') format('truetype'),
+		url('../fonts/Roboto-300.svg#Roboto') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
 	font-family: 'kayo';
 	src: url('../fonts/kayo.eot');
 	src: url('../fonts/kayo.eot#iefix') format('embedded-opentype'),

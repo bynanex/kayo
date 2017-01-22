@@ -10,12 +10,12 @@
 		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">
 		<style type="text/css">
 			#logo {
-				background-image: url('{{ elixir('img/logo.png') }}');
+				background-image: url('{{ elixir('img/logo.png', env('ELIXIR_DIRECTORY')) }}');
 				background-image: linear-gradient(transparent, transparent), url('{{ elixir('img/logo.svg', env('ELIXIR_DIRECTORY')) }}');
 			}
 
 			#logo-alt {
-				background-image: url('{{ elixir('img/logo-alt.png') }}');
+				background-image: url('{{ elixir('img/logo-alt.png', env('ELIXIR_DIRECTORY')) }}');
 				background-image: linear-gradient(transparent, transparent), url('{{ elixir('img/logo-alt.svg', env('ELIXIR_DIRECTORY')) }}');
 			}
 		</style>
@@ -40,7 +40,7 @@
 							</h4>
 
 							<small class="card-text">
-								<p>Project description goes here.</p>
+								<p>{{ $project->summary }}</p>
 							</small>
 
 							<div>

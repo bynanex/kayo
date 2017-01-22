@@ -1,4 +1,4 @@
-@include('templates.nav.infobar')
+@include('templates.header')
 @include('templates.footer')
 <!DOCTYPE html>
 <html lang="en">
@@ -11,30 +11,11 @@
 		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<header class="immersive">
-			<div class="container">
-				<div class="float-left">
-					{{ $project->name }}
-				</div>
-
-				<nav class="float-right">
-					<a href="{{ action('ProjectController@view', [$project]) }}" class="item active">Overview</a>
-					<a href="{{ action('ProjectController@releases', [$project]) }}" class="item">Releases</a>
-				</nav>
-
-				<div class="clearfix"></div>
-			</div>
-
-			<section class="infobar">
-				<div class="container">
-					@yield('infobar')
-				</div>
-			</section>
-		</header>
+		@yield('header')
 		
 		<div class="container">
 			<main>
-				A project created by {{ $project->author->display_name }}.
+				{{ $project->summary }}
 			</main>
 			
 			<footer>

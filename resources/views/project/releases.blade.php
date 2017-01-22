@@ -1,4 +1,4 @@
-@include('templates.nav.infobar')
+@include('templates.header')
 @include('templates.footer')
 <!DOCTYPE html>
 <html lang="en">
@@ -12,24 +12,7 @@
 	</head>
 	<body>
 		<header class="immersive">
-			<div class="container">
-				<div class="float-left">
-					{{ $project->name }}
-				</div>
-
-				<nav class="float-right">
-					<a href="{{ action('ProjectController@view', [$project]) }}" class="item">Overview</a>
-					<a href="{{ action('ProjectController@releases', [$project]) }}" class="item active">Releases</a>
-				</nav>
-
-				<div class="clearfix"></div>
-			</div>
-
-			<section class="infobar">
-				<div class="container">
-					@yield('infobar')
-				</div>
-			</section>
+			@yield('header')
 		</header>
 		
 		<div class="container">

@@ -23,10 +23,15 @@ header.index {
 }
 
 header.immersive {
-	background: @header-immersive-background;
+	background: 0 50% no-repeat @header-immersive-background;
+	background-size: cover;
 	color: #FFF;
 	width: 100%;
-	padding-top: 150px;
+
+	div.overlay {
+		background: rgba(0, 0, 0, .65);
+		padding-top: 150px;
+	}
 
 	nav {
 		a.item {
@@ -37,16 +42,16 @@ header.immersive {
 			font-size: 12px;
 			text-decoration: none;
 
+			&:hover, &:focus {
+				background: @navitem-hover-background;
+				color: @navitem-hover-color;
+			}
+
 			&.active {
 				&, &:hover, &:focus {
 					background: @navitem-active-background;
 					color: @navitem-active-color;
 				}
-			}
-
-			&:hover, &:focus {
-				background: @navitem-hover-background;
-				color: @navitem-hover-color;
 			}
 		}
 	}
@@ -63,12 +68,17 @@ section.infobar {
 	text-align: center;
 
 	ul {
+		margin: 0;
+		padding: 0;
+		width: 100%;
 		display: table;
-	    width: 100%;
-	    margin: 0;
+		table-layout: fixed;
 
 		li {
 			display: table-cell;
+			padding: 0;
+			text-align: center;
+			white-space: nowrap;
 		}
 	}
 }

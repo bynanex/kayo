@@ -23,8 +23,12 @@
 			</div>
 
 			<nav class="float-right">
-				<a href="{{ action('ProjectController@view', [$project]) }}" class="item active">Overview</a>
-				<a href="{{ action('ProjectController@releases', [$project]) }}" class="item">Releases</a>
+				@foreach (config('nav.project') as $item)
+					{{-- compare the current route to this item to determine active state --}}
+					<a href="{{ action($item['action'], [$project]) }}" class="{{ Route::currentRouteName() == $item['route'] ? 'item active': 'item' }}">
+						{{ $item['text'] }}
+					</a>
+				@endforeach
 			</nav>
 
 			<div class="clearfix"></div>

@@ -15,8 +15,8 @@ Route::get('/', function () {
 	return view('index');
 });
 
-Route::get('/{project}', 'ProjectController@view');
-Route::get('/{project}/releases', 'ProjectController@releases');
+Route::get('/{project}', 'ProjectController@view')->name('overview');
+Route::get('/{project}/releases', 'ProjectController@releases')->name('releases');
 
 Route::get('/{project}/releases/{release}/{file}/download', 'ReleaseController@download');
 Route::get('/{project}/releases/{release}/{file}/signature', 'ReleaseController@signature');

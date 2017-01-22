@@ -21,6 +21,7 @@ class CreateFilesTable extends Migration
             $table->string('filename');
             $table->string('extension', 32);
             $table->integer('size')->unsigned();
+            $table->string('signed_by', 128);
             $table->text('signature')->nullable();
             $table->timestamps();
         });

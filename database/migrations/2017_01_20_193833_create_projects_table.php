@@ -18,6 +18,8 @@ class CreateProjectsTable extends Migration
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users');
             $table->string('name')->unique();
+            $table->string('summary', 256)->unique();
+            $table->string('language', 32);
             $table->string('slug', 64)->unique();
             $table->timestamps();
         });

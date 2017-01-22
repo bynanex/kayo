@@ -47,7 +47,7 @@
 						</section>
 
 						<section class="release-description">
-							{{ $release->description }}
+							{!! Markdown::convertToHtml($release->description) !!}
 						</section>
 
 						<section class="release-files">

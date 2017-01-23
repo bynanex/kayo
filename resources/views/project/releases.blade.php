@@ -21,6 +21,11 @@
 		<div class="container">
 			<main>
 				@foreach ($releases as $release)
+				{{-- skip releases with no files --}}
+				@if ($release->files->count() == 0)
+					@continue
+				@endif
+
 				<div class="row">
 					<div class="col-sm-12 col-lg-2 text-lg-right text-center">
 						<section class="release-sidebar">

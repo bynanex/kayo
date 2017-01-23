@@ -95,4 +95,19 @@ main {
 footer {
 	font-size: 12px;
 	color: #757575;
+
+	.list-inline-item {
+		a {
+			color: #505050;
+		}
+
+		&:not(:last-child) {
+			margin-right: 0px;
+
+			&::after {
+				content: '\2022';
+				margin: 0 7px;
+			}
+		}
+	}	
 }

@@ -22,7 +22,7 @@
 			<main>
 				@foreach ($releases as $release)
 				<div class="row">
-					<div class="col-2 text-right">
+					<div class="col-sm-12 col-lg-2 text-lg-right text-center">
 						<section class="release-sidebar">
 							<span class="badge {{ $release->badgeClass }}">
 								<i class="icon-warning"></i> {{ $release->type }}
@@ -31,7 +31,7 @@
 					</div>
 					
 					<div class="col">
-						<section class="release-header">
+						<section class="release-header text-lg-left text-center">
 							{{ $release->name }} <span class="release-version">v{{ $release->version }}</span>
 
 							<ul class="release-info list-inline text-muted">
@@ -50,7 +50,9 @@
 						</section>
 
 						<section class="release-description">
-							{!! Markdown::convertToHtml($release->description) !!}
+							<article>
+								{!! Markdown::convertToHtml($release->description) !!}
+							</article>
 						</section>
 
 						<section class="release-files">

@@ -17,7 +17,7 @@ class CreateFilesTable extends Migration
             $table->increments('id');
             $table->integer('uploader_id')->unsigned();
             $table->foreign('uploader_id')->references('id')->on('users');
-            $table->string('sha256sum')->unique();
+            $table->string('sha256sum', 64)->unique();
             $table->string('filename');
             $table->string('extension', 32);
             $table->integer('size')->unsigned();

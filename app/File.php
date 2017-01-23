@@ -52,7 +52,7 @@ class File extends Model
 	 *
 	 * @return boolean
 	 */
-	public function getExistsAttribute() {
+	public function getDoesExistAttribute() {
 		return Storage::disk('uploads')->exists($this->rawFilename);
 	}
 

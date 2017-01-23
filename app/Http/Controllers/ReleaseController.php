@@ -19,7 +19,7 @@ class ReleaseController extends Controller
 	 */
 	public function download(Project $project, Release $release, File $file)
 	{
-		if (!$file->exists)
+		if (!$file->doesExist)
 			return abort(404);
 
 		return response()->download($file->path, $file->filename);
@@ -32,7 +32,7 @@ class ReleaseController extends Controller
 	 */
 	public function signature(Project $project, Release $release, File $file)
 	{
-		if (!$file->exists || !$file->signature)
+		if (!$file->doesExist || !$file->signature)
 			return abort(404);
 
 		return Response::make($file->signature, 200, [

@@ -50,7 +50,7 @@ return [
 
         'uploads' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/uploads'),
+            'root' => storage_path('app/public/projects/uploads'),
             'visibility' => 'public',
         ],
 

@@ -36,6 +36,14 @@ class User extends Authenticatable
 	}
 
 	/**
+	 * Get the projects this user is a maintainer of.
+	 */
+	public function maintains()
+	{
+		return $this->belongsToMany('App\Project', 'maintainers');
+	}
+
+	/**
 	 * Get files uploaded by this user.
 	 */
 	public function files()

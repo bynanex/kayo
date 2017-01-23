@@ -28,6 +28,15 @@
 					{{ $project->releases->count(). ' '.str_plural('release', $project->releases->count()) }}
 				</a>
 			</li>
+
+			{{-- maintainer counter --}}
+			<li class="list-inline-item">
+				<i class="icon-group"></i>
+
+				<a href="#">
+					{{ $project->maintainers->count(). ' '.str_plural('maintainer', $project->maintainers->count()) }}
+				</a>
+			</li>
 		</ul>
 	</div>
 </section>

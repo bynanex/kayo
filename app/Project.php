@@ -34,6 +34,14 @@ class Project extends Model
 	}
 
 	/**
+	 * Get the maintainers of this project.
+	 */
+	public function maintainers()
+	{
+		return $this->belongsToMany('App\User', 'maintainers');
+	}
+
+	/**
 	 * Get the banner URL for this project.
 	 *
 	 * @return string

@@ -9,6 +9,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="{{ elixir('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
 		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			@stack('styles-inline')
+		</style>
 	</head>
 	<body>
 		<header class="immersive">

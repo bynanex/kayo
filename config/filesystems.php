@@ -48,6 +48,13 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'banners' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/projects/banners'),
+            'url' => env('PROJECT_BANNERS_URL'),
+            'visibility' => 'public',
+        ],
+
         'uploads' => [
             'driver' => 'local',
             'root' => storage_path('app/public/projects/uploads'),

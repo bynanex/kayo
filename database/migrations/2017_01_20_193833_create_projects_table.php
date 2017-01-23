@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->foreign('author_id')->references('id')->on('users');
             $table->string('name')->unique();
             $table->string('slug', 64)->unique();
+            $table->string('banner', 64);
             $table->string('summary', 128)->unique();
             $table->string('language', 32);
             $table->timestamps();

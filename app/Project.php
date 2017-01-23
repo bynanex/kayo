@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Storage;
+
 class Project extends Model
 {
 	/**
@@ -29,5 +31,17 @@ class Project extends Model
 	public function releases()
 	{
 		return $this->hasMany('App\Release');
+	}
+
+	/**
+	 * Get the banner URL for this project.
+	 *
+	 * @return string
+	 */
+	public function getBannerUrlAttribute() {
+		if (!Storage::disk('banners')->exists($this->banner.'.jpg'))
+			return;
+
+		return config('filesystems.disks.banners.url').'/'.$this->banner.'.jpg';
 	}
 }

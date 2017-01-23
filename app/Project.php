@@ -34,6 +34,14 @@ class Project extends Model
 	}
 
 	/**
+	 * Get wiki pages assigned to this project.
+	 */
+	public function pages()
+	{
+		return $this->hasMany('App\WikiPage');
+	}
+
+	/**
 	 * Get the maintainers of this project.
 	 */
 	public function maintainers()

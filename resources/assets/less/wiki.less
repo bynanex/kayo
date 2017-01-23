@@ -1,0 +1,31 @@
+div.wiki-sidebar {
+	nav {
+		font-size: 12px;
+		margin-bottom: 15px;
+
+		@media (min-width: @breakpoint-lg) {
+			margin-bottom: 0;
+		}
+
+		a.item {
+			color: #000;
+			background: #fff;
+			display: inline-block;
+			padding: 0.35rem 0.8rem;
+
+			&:not(:last-child) {
+				margin-right: 5px;
+			}
+
+			@media (min-width: @breakpoint-lg) {
+				display: block;
+				margin: 0;
+			}
+			
+			&.active {
+				color: #fff;
+				background: #000;
+			}
+		}
+	}
+}

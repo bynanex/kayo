@@ -22,6 +22,11 @@ return [
             'text' => 'Releases',
             'route' => 'releases',
             'action' => 'ProjectController@releases'
+        ],
+        [
+            'text' => 'Wiki',
+            'route' => 'wiki',
+            'action' => 'ProjectController@wiki'
         ]
     ]
 

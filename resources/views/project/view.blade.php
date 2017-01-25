@@ -18,7 +18,9 @@
 		
 		<div class="container">
 			<main>
-				{{ $project->summary }}
+				<article>
+					{!! Markdown::convertToHtml($project->description) !!}
+				</article>
 			</main>
 			
 			<footer>

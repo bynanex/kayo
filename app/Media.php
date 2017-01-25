@@ -9,6 +9,15 @@ use Storage;
 class Media extends Model
 {
 	/**
+	 * Get the route key for the model.
+	 *
+	 * @return string
+	 */
+	public function getRouteKeyName() {
+		return 'slug';
+	}
+
+	/**
 	 * Determines whether this media object is an image.
 	 *
 	 * @return boolean
@@ -24,33 +33,6 @@ class Media extends Model
 	 */
 	public function getIsVideoAttribute() {
 		return $this->video_filename !== null;
-	}
-
-	/**
-	 * Get the absolute path to the thumbnail image.
-	 *
-	 * @return string
-	 */
-	public function getThumbnailPathAttribute() {
-		return config('filesystems.disks.media.root').DIRECTORY_SEPARATOR.$this->thumbnail;
-	}
-
-	/**
-	 * Get the absolute path to the image file.
-	 *
-	 * @return string
-	 */
-	public function getImagePathAttribute() {
-		return config('filesystems.disks.media.root').DIRECTORY_SEPARATOR.$this->image_filename;
-	}
-
-	/**
-	 * Get the absolute path to the video file.
-	 *
-	 * @return string
-	 */
-	public function getVideoPathAttribute() {
-		return config('filesystems.disks.media.root').DIRECTORY_SEPARATOR.$this->video_filename;
 	}
 
 	/**
@@ -81,6 +63,33 @@ class Media extends Model
 	}
 
 	/**
+	 * Get the absolute path to the image or video file.
+	 *
+	 * @return string
+	 */
+	public function getPathAttribute() {
+		return config('filesystems.disks.media.root').DIRECTORY_SEPARATOR.($this->isImage ? $this->image_filename: $this->video_filename);
+	}
+
+	/**
+	 * Get the absolute path to the thumbnail image.
+	 *
+	 * @return string
+	 */
+	public function getThumbnailPathAttribute() {
+		return config('filesystems.disks.media.root').DIRECTORY_SEPARATOR.$this->thumbnail;
+	}
+
+	/**
+	 * Get the public URL to the media file.
+	 *
+	 * @return string
+	 */
+	public function getURLAttribute() {
+		return config('filesystems.disks.media.url').'/'.($this->isImage ? $this->image_filename: $this->video_filename);
+	}
+
+	/**
 	 * Get the public URL to the thumbnail image.
 	 *
 	 * @return string
@@ -93,23 +102,5 @@ class Media extends Model
 				return config('filesystems.disks.media.url').'/thumbnails/default_video.png';
 
 		return config('filesystems.disks.media.url').'/thumbnails/'.$this->thumbnail.'.jpg';
-	}
-
-	/**
-	 * Get the public URL to the image file.
-	 *
-	 * @return string
-	 */
-	public function getImageURLAttribute() {
-		return config('filesystems.disks.media.url').'/'.$this->image_filename;
-	}
-
-	/**
-	 * Get the public URL to the video file.
-	 *
-	 * @return string
-	 */
-	public function getVideoURLAttribute() {
-		return config('filesystems.disks.media.url').'/'.$this->video_filename;
 	}
 }

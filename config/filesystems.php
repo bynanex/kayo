@@ -55,9 +55,9 @@ return [
             'visibility' => 'public',
         ],
 
-        'uploads' => [
+        'releases' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/projects/uploads'),
+            'root' => storage_path('app/public/projects/releases'),
             'visibility' => 'public',
         ],
 

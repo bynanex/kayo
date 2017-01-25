@@ -32,7 +32,7 @@ class File extends Model
 	 * @return string
 	 */
 	public function getPathAttribute() {
-		return config('filesystems.disks.uploads.root').DIRECTORY_SEPARATOR.$this->rawFilename;
+		return config('filesystems.disks.releases.root').DIRECTORY_SEPARATOR.$this->rawFilename;
 	}
 
 	/**
@@ -53,7 +53,7 @@ class File extends Model
 	 * @return boolean
 	 */
 	public function getDoesExistAttribute() {
-		return Storage::disk('uploads')->exists($this->rawFilename);
+		return Storage::disk('releases')->exists($this->rawFilename);
 	}
 
 	/**

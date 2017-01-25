@@ -19,6 +19,15 @@
 		<div class="container">
 			<main>
 				Media goes here.
+
+				<article>
+				@foreach ($project->media as $media)
+					@if ($media->isImage)
+						<img src="{{ $media->thumbnailUrl }}">
+						<img src="{{ $media->url }}">
+					@endif
+				@endforeach
+				</article>
 			</main>
 			
 			<footer>

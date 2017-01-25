@@ -22,3 +22,5 @@ Route::get('/{project}/wiki/{page?}', 'ProjectController@wiki')->name('wiki');
 
 Route::get('/{project}/releases/{release}/{file}/download', 'ReleaseController@download');
 Route::get('/{project}/releases/{release}/{file}/signature', 'ReleaseController@signature');
+
+Route::get('/{project}/media/{media}/download', 'MediaController@download');

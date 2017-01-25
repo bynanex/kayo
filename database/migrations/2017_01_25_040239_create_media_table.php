@@ -21,12 +21,14 @@ class CreateMediaTable extends Migration
             $table->foreign('uploader_id')->references('id')->on('users');
             $table->string('title');
             $table->string('slug', 64);
-            $table->unique(['project_id', 'slug']);
-            $table->string('summary', 128)->unique();
+            $table->string('summary', 128);
             $table->text('description');
             $table->string('thumbnail', 64)->nullable();
             $table->string('image_filename', 128)->nullable();
             $table->string('video_filename', 128)->nullable();
+            $table->unique(['project_id', 'slug']);
+            $table->unique(['project_id', 'image_filename']);
+            $table->unique(['project_id', 'video_filename']);
             $table->timestamps();
         });
     }

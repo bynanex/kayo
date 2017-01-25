@@ -34,6 +34,14 @@ class Project extends Model
 	}
 
 	/**
+	 * Get uploaded media assigned to this project.
+	 */
+	public function media()
+	{
+		return $this->hasMany('App\Media');
+	}
+
+	/**
 	 * Get wiki pages assigned to this project.
 	 */
 	public function pages()

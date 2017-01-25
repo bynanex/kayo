@@ -55,6 +55,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'media' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/projects/media'),
+            'url' => env('PROJECT_MEDIA_URL'),
+            'visibility' => 'public',
+        ],
+
         'releases' => [
             'driver' => 'local',
             'root' => storage_path('app/public/projects/releases'),

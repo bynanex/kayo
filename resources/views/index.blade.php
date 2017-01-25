@@ -29,8 +29,8 @@
 			</header>
 			
 			<main>
-			@foreach (App\Project::all() as $project)
 				<div class="card-columns">
+				@foreach (App\Project::all() as $project)
 					<div class="card">
 						@if ($project->bannerUrl)
 						<a href="{{ action('ProjectController@overview', [$project->slug]) }}">
@@ -56,8 +56,8 @@
 							</div>
 						</div>
 					</div>
+				@endforeach
 				</div>
-			@endforeach
 			</main>
 			
 			<footer>

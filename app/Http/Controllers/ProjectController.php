@@ -54,7 +54,7 @@ class ProjectController extends Controller
 	public function wiki(Project $project, WikiPage $page)
 	{
 		// If no pages exist show the 'wiki is empty' message.
-		if (!$page->exists && WikiPage::count() == 0) {
+		if (!$page->exists && $project->pages->count() == 0) {
 			return view('project.wiki', [
 				'project' => $project, 'page' => $page, 'empty' => true
 			]);

@@ -50,14 +50,20 @@ class Project extends Model
 	}
 
 	/**
+	 * Check if a custom banner has been uploaded for this project.
+	 *
+	 * @return boolean
+	 */
+	public function getDoesBannerExistAttribute() {
+		return Storage::disk('banners')->exists($this->banner.'.jpg');
+	}
+
+	/**
 	 * Get the banner URL for this project.
 	 *
 	 * @return string
 	 */
 	public function getBannerUrlAttribute() {
-		if (!Storage::disk('banners')->exists($this->banner.'.jpg'))
-			return;
-
-		return config('filesystems.disks.banners.url').'/'.$this->banner.'.jpg';
+		return $this->doesBannerExist ? config('filesystems.disks.banners.url').'/'.$this->banner.'.jpg': '';
 	}
 }

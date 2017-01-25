@@ -26,9 +26,23 @@ class ProjectController extends Controller
 	 */
 	public function releases(Project $project)
 	{
+		// TODO: paginate
 		return view('project.releases', [
 			'project' => $project,
 			'releases' => $project->releases()->orderBy('created_at', 'desc')->get()
+		]);
+	}
+
+	/**
+	 * Displays uploaded media for this project.
+	 *
+	 * @return void
+	 */
+	public function media(Project $project)
+	{
+		// TODO: paginate
+		return view('project.media', [
+			'project' => $project
 		]);
 	}
 

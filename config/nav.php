@@ -19,6 +19,11 @@ return [
             'action' => 'ProjectController@overview'
         ],
         [
+            'text' => 'Media',
+            'route' => 'media',
+            'action' => 'ProjectController@media'
+        ],
+        [
             'text' => 'Releases',
             'route' => 'releases',
             'action' => 'ProjectController@releases'

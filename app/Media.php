@@ -103,4 +103,16 @@ class Media extends Model
 
 		return config('filesystems.disks.media.url').'/thumbnails/'.$this->thumbnail.'.jpg';
 	}
+
+	/**
+	 * Get the mime type of the media file.
+	 *
+	 * @return string
+	 */
+	public function getMimeTypeAttribute() {
+		if (!$this->doesExist)
+			return '';
+		
+		return Storage::disk('media')->mimeType($this->isImage ? $this->image_filename: $this->video_filename);
+	}
 }

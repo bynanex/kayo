@@ -18,15 +18,17 @@
 		
 		<div class="container">
 			<main>
-				<div class="card-columns">
-				@foreach ($project->media as $media)
-					<div class="card">
-						<a href="{{ action('MediaController@view', [$project, $media]) }}">
-							<img class="card-img-top img-fluid" src="{{ $media->thumbnailUrl }}">
-						</a>
+				@if ($media->isImage)
+					<img class="img-fluid" src="{{ $media->url }}">
+				@else
+					<div class="embed-responsive embed-responsive-16by9">
+						<video autoplay controls>
+							<source src="{{ $media->url }}" type="{{ $media->mimeType }}">
+						</video>
 					</div>
-				@endforeach
-				</div>
+				@endif
+
+				<a href="{{ action('MediaController@download', [$project, $media]) }}">Download</a>	
 			</main>
 			
 			<footer>

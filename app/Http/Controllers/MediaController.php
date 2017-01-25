@@ -10,6 +10,18 @@ use App\Media;
 class MediaController extends Controller
 {
 	/**
+	 * View the media in a separate page.
+	 *
+	 * @return void
+	 */
+	public function view(Project $project, Media $media) {
+		if (!$media->doesExist)
+			return abort(404);
+
+		return view('project.media.view', ['project' => $project, 'media' => $media]);
+	}
+
+	/**
 	 * Force download a media file.
 	 *
 	 * @return void

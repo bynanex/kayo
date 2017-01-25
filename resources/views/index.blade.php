@@ -33,14 +33,14 @@
 				<div class="card-columns">
 					<div class="card">
 						@if ($project->bannerUrl)
-						<a href="{{ action('ProjectController@view', [$project->slug]) }}">
+						<a href="{{ action('ProjectController@overview', [$project->slug]) }}">
 							<img class="card-img-top img-fluid" src="{{ $project->bannerUrl }}" alt="{{ $project->name}}">
 						</a>
 						@endif
 
 						<div class="card-block">
 							<h4 class="card-title">
-								<a href="{{ action('ProjectController@view', [$project->slug]) }}">
+								<a href="{{ action('ProjectController@overview', [$project->slug]) }}">
 									{{ $project->name }}
 								</a>
 							</h4>

@@ -14,9 +14,9 @@ class ProjectController extends Controller
 	 *
 	 * @return void
 	 */
-	public function view(Project $project)
+	public function overview(Project $project)
 	{
-		return view('project.view', ['project' => $project]);
+		return view('project.overview', ['project' => $project]);
 	}
 
 	/**

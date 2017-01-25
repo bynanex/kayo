@@ -15,7 +15,7 @@ Route::get('/', function () {
 	return view('index');
 });
 
-Route::get('/{project}', 'ProjectController@view')->name('overview');
+Route::get('/{project}', 'ProjectController@overview')->name('overview');
 Route::get('/{project}/releases', 'ProjectController@releases')->name('releases');
 Route::get('/{project}/wiki/{page?}', 'ProjectController@wiki')->name('wiki');
 

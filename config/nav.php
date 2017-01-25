@@ -16,7 +16,7 @@ return [
         [
             'text' => 'Overview',
             'route' => 'overview',
-            'action' => 'ProjectController@view'
+            'action' => 'ProjectController@overview'
         ],
         [
             'text' => 'Releases',

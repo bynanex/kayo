@@ -63,7 +63,7 @@ class Project extends Model
 	 * @return boolean
 	 */
 	public function getDoesBannerExistAttribute() {
-		return Storage::disk('banners')->exists($this->banner.'.jpg');
+		return Storage::disk('banners')->exists($this->banner);
 	}
 
 	/**
@@ -72,6 +72,6 @@ class Project extends Model
 	 * @return string
 	 */
 	public function getBannerUrlAttribute() {
-		return $this->doesBannerExist ? config('filesystems.disks.banners.url').'/'.$this->banner.'.jpg': '';
+		return $this->doesBannerExist ? config('filesystems.disks.banners.url').'/'.$this->banner: '';
 	}
 }

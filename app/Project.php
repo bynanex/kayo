@@ -58,12 +58,30 @@ class Project extends Model
 	}
 
 	/**
+	 * Check if a custom logo has been uploaded for this project.
+	 *
+	 * @return boolean
+	 */
+	public function getDoesLogoExistAttribute() {
+		return Storage::disk('logos')->exists($this->logo);
+	}
+
+	/**
 	 * Check if a custom banner has been uploaded for this project.
 	 *
 	 * @return boolean
 	 */
 	public function getDoesBannerExistAttribute() {
 		return Storage::disk('banners')->exists($this->banner);
+	}
+
+	/**
+	 * Get the logo URL for this project.
+	 *
+	 * @return string
+	 */
+	public function getLogoUrlAttribute() {
+		return $this->doesLogoExist ? config('filesystems.disks.logos.url').'/'.$this->logo: '';
 	}
 
 	/**

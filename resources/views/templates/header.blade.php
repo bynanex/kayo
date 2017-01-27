@@ -56,13 +56,19 @@
 	{{-- overlay to darken the banner image --}}
 	<div class="overlay">
 		<div class="container">
-			{{-- left side content --}}
-			<div class="float-left">
-				{{ $project->name }}
+			<div class="title">
+				@if ($project->doesLogoExist)
+					<a href="{{ action('ProjectController@overview', [$project]) }}">
+						<img src="{{ $project->logoUrl }}">
+					</a>
+				@else
+					<a href="{{ action('ProjectController@overview', [$project]) }}">
+						{{ $project->name }}
+					</a>
+				@endif
 			</div>
 
-			{{-- right side content --}}
-			<nav class="float-right">
+			<nav>
 				{{-- display project navigation items --}}
 				@foreach (config('nav.project') as $item)
 					{{-- compare the current route to this item to determine active state --}}
@@ -71,8 +77,6 @@
 					</a>
 				@endforeach
 			</nav>
-
-			<div class="clearfix"></div>
 		</div>
 
 		{{-- display project info bar --}}

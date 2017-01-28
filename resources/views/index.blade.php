@@ -8,23 +8,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="{{ elixir('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
 		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">
-		<style type="text/css">
-			#logo {
-				background-image: url('{{ elixir('img/logo.png', env('ELIXIR_DIRECTORY')) }}');
-				background-image: linear-gradient(transparent, transparent), url('{{ elixir('img/logo.svg', env('ELIXIR_DIRECTORY')) }}');
-			}
-
-			#logo-alt {
-				background-image: url('{{ elixir('img/logo-alt.png', env('ELIXIR_DIRECTORY')) }}');
-				background-image: linear-gradient(transparent, transparent), url('{{ elixir('img/logo-alt.svg', env('ELIXIR_DIRECTORY')) }}');
-			}
-		</style>
 	</head>
 	<body>
 		<div class="container">
 			<header class="index">
 				<div class="logo" id="logo">
-					<a href="#"></a>
+					<a href="#">
+						{{-- include the logo vector here --}}
+						{!! file_get_contents('../resources/assets/img/logo.svg') !!}
+					</a>
 				</div>
 			</header>
 			

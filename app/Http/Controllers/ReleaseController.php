@@ -37,7 +37,7 @@ class ReleaseController extends Controller
 
 		return Response::make($file->signature, 200, [
 			'Content-Type' => 'application/pgp-signature',
-			'Content-Disposition' => sprintf('attachment; filename="%s"', $file->filename.'.sig'),
+			'Content-Disposition' => sprintf('attachment; filename="%s"', $file->filename.'.asc'),
 			'Content-Length' => strlen($file->signature)
 		]);
 	}

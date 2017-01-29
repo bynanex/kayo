@@ -21,7 +21,6 @@ class CreateMediaTable extends Migration
             $table->foreign('uploader_id')->references('id')->on('users');
             $table->string('title');
             $table->string('slug', 64);
-            $table->string('summary', 128);
             $table->text('description');
             $table->string('thumbnail', 64)->nullable();
             $table->string('image_filename', 128)->nullable();

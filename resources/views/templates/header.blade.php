@@ -56,7 +56,16 @@
 	{{-- overlay to darken the banner image --}}
 	<div class="overlay">
 		<div class="container">
-			<div class="title">
+			<div class="title" style="padding-top: 20px;">
+				<div style="margin-bottom: 75px;">
+					<a href="/" style="display: block; width: 94px; height: 31px;">
+						{{-- include the logo vector, colored white in the immersive header --}}
+						<svg xmlns="http://www.w3.org/2000/svg" id="kayo" viewBox="0 0 898 300" style="fill: white;">
+							{!! file_get_contents('../resources/assets/img/logo.svg') !!}
+						</svg>
+					</a>
+				</div>
+
 				@if ($project->doesLogoExist)
 					<a href="{{ action('ProjectController@overview', [$project]) }}">
 						<img src="{{ $project->logoUrl }}">

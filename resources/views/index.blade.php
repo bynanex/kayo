@@ -14,8 +14,10 @@
 			<header class="index">
 				<div class="logo" id="logo">
 					<a href="#">
-						{{-- include the logo vector here --}}
-						{!! file_get_contents('../resources/assets/img/logo.svg') !!}
+						{{-- include the logo vector --}}
+						<svg xmlns="http://www.w3.org/2000/svg" id="kayo" viewBox="0 0 898 300">
+							{!! file_get_contents('../resources/assets/img/logo.svg') !!}
+						</svg>
 					</a>
 				</div>
 			</header>

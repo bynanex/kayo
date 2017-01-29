@@ -79,16 +79,15 @@
 										<div class="clearfix"></div>
 
 										<div class="release-file-info text-muted">
-											<b>SHA256:</b> {{ $file->sha256sum }}
-											{{--
-											@if ($file->signature)
-											<b>Signed by:</b>
+											<b>SHA-256:</b> {{ strtoupper($file->sha256sum) }}
+										</div>
+
+										<div class="release-file-info text-muted">
+											<b>Signed-by:</b> {{ $file->signed_by }} &mdash; 
 
 											<a href="{{ action('ReleaseController@signature', [$project, $release, $file]) }}">
-												{{ $file->signed_by }} &mdash; <b>{{ $file->fingerprint }}</b>
+												<b>{{ $file->fingerprint }}</b>
 											</a>
-											@endif
-											--}}
 										</div>
 									</li>
 								@endforeach

@@ -12,10 +12,10 @@
 	<body>
 		<div class="container">
 			<header class="index">
-				<div class="logo" id="logo">
+				<div class="logo">
 					<a href="#">
 						{{-- include the logo vector --}}
-						<svg xmlns="http://www.w3.org/2000/svg" id="kayo" viewBox="0 0 898 300">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 898 300">
 							{!! file_get_contents('../resources/assets/img/logo.svg') !!}
 						</svg>
 					</a>

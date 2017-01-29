@@ -14,7 +14,6 @@ header.index {
 
 	div.logo {
 		width: @logo-width;
-		height: @logo-height;
 		display: inline-block;
 
 		a {
@@ -34,10 +33,20 @@ header.immersive {
 	div.title {
 		font-size: 24px;
 		font-family: @light-font;
+		padding-top: 20px;
 		margin-bottom: 7px;
-		
+
 		a {
 			color: #ffffff;
+		}
+
+		div.logo {
+			margin-bottom: 75px;
+
+			a {
+				display: inline-block;
+				width: @logo-width-immersive;
+			}
 		}
 	}
 

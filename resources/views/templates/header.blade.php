@@ -56,25 +56,23 @@
 	{{-- overlay to darken the banner image --}}
 	<div class="overlay">
 		<div class="container">
-			<div class="title" style="padding-top: 20px;">
-				<div style="margin-bottom: 75px;">
-					<a href="/" style="display: block; width: 94px; height: 31px;">
+			<div class="title">
+				<div class="logo">
+					<a href="/">
 						{{-- include the logo vector, colored white in the immersive header --}}
-						<svg xmlns="http://www.w3.org/2000/svg" id="kayo" viewBox="0 0 898 300" style="fill: white;">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 898 300" style="fill: white;">
 							{!! file_get_contents('../resources/assets/img/logo.svg') !!}
 						</svg>
 					</a>
 				</div>
 
-				@if ($project->doesLogoExist)
-					<a href="{{ action('ProjectController@overview', [$project]) }}">
+				<a href="{{ action('ProjectController@overview', [$project]) }}">
+					@if ($project->doesLogoExist)
 						<img src="{{ $project->logoUrl }}">
-					</a>
-				@else
-					<a href="{{ action('ProjectController@overview', [$project]) }}">
+					@else
 						{{ $project->name }}
-					</a>
-				@endif
+					@endif
+				</a>
 			</div>
 
 			<nav>

@@ -55,9 +55,9 @@
 @yield('header-banner')
 	{{-- overlay to darken the banner image --}}
 	<div class="overlay">
-		<div class="container">
+		<div class="container text-md-left text-center">
 			<div class="title">
-				<div class="logo">
+				<div class="logo text-left">
 					<a href="/">
 						{{-- include the logo vector, colored white in the immersive header --}}
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 898 300" style="fill: white;">

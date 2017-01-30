@@ -33,10 +33,14 @@ header.immersive {
 	width: 100%;
 
 	div.title {
-		font-size: 24px;
+		font-size: 18px;
 		font-family: @light-font;
 		padding-top: 20px;
 		margin-bottom: 7px;
+
+		@media (min-width: @breakpoint-sm) {
+			font-size: 24px;
+		}
 
 		a {
 			color: #ffffff;
@@ -113,7 +117,11 @@ main {
 	background: @main-container-background;
 	border: 1px @main-container-border solid;
 	margin-bottom: 15px;
-	padding: 40px 50px;
+	padding: 20px 30px;
+
+	@media (min-width: @breakpoint-sm) {
+		padding: 40px 50px;
+	}
 
 	nav.page-navigation {
 		width: 100%;

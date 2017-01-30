@@ -82,7 +82,7 @@
 				</ul>
 
 				@if (!$loop->last)
-				<hr>
+				<hr class="release-separator">
 				@endif
 			</section>
 		</div>

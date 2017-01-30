@@ -20,6 +20,16 @@ class ProjectController extends Controller
 	}
 
 	/**
+	 * Displays a list of maintainers for this project.
+	 *
+	 * @return void
+	 */
+	public function maintainers(Project $project)
+	{
+		return view('project.maintainers', ['project' => $project]);
+	}
+
+	/**
 	 * Displays a list of releases for this project.
 	 *
 	 * @return void

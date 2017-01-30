@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/{project}', 'ProjectController@overview')->name('overview');
+Route::get('/{project}/maintainers', 'ProjectController@maintainers')->name('overview');
+
 Route::get('/{project}/media', 'ProjectController@media')->name('media');
 Route::get('/{project}/releases', 'ProjectController@releases')->name('releases');
 Route::get('/{project}/wiki/{page?}', 'ProjectController@wiki')->name('wiki');

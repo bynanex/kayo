@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
 	return view('index', [
-		'projects' => App\Project::paginate(15)
+		'projects' => App\Project::paginate(env('PAGINATION_MAX_PROJECTS'))
 	]);
 });
 

@@ -42,5 +42,25 @@
 		</figure>
 	@endforeach
 	</div>
+
+	@if ($media->lastPage() > 1)
+		<nav class="page-navigation">
+			@if ($media->currentPage() !== 1)
+				<a title="Previous page" href="{{ $media->previousPageUrl() }}">
+					<span class="icon-chevron-left"></span>
+				</a>
+			@endif
+			
+			<span class="separator">
+				PAGE {{ $media->currentPage() }} OF {{ $media->lastPage() }}
+			</span>
+			
+			@if ($media->hasMorePages())
+				<a title="Next page" href="{{ $media->nextPageUrl() }}">
+					<span class="icon-chevron-right"></span>
+				</a>
+			@endif
+		</nav>
+	@endif
 @endif
 @endsection

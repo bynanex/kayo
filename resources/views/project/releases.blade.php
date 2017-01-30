@@ -88,5 +88,25 @@
 		</div>
 	</div>
 	@endforeach
+
+	@if ($releases->lastPage() > 1)
+		<nav class="page-navigation">
+			@if ($releases->currentPage() !== 1)
+				<a title="Previous page" href="{{ $releases->previousPageUrl() }}">
+					<span class="icon-chevron-left"></span>
+				</a>
+			@endif
+			
+			<span class="separator">
+				PAGE {{ $releases->currentPage() }} OF {{ $releases->lastPage() }}
+			</span>
+			
+			@if ($releases->hasMorePages())
+				<a title="Next page" href="{{ $releases->nextPageUrl() }}">
+					<span class="icon-chevron-right"></span>
+				</a>
+			@endif
+		</nav>
+	@endif
 @endif
 @endsection

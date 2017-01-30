@@ -36,10 +36,9 @@ class ProjectController extends Controller
 	 */
 	public function releases(Project $project)
 	{
-		// TODO: paginate
 		return view('project.releases', [
 			'project' => $project,
-			'releases' => $project->releases()->orderBy('created_at', 'desc')->get()
+			'releases' => $project->releases()->orderBy('created_at', 'desc')->paginate(env('PAGINATION_MAX_RELEASES'))
 		]);
 	}
 
@@ -50,10 +49,9 @@ class ProjectController extends Controller
 	 */
 	public function media(Project $project)
 	{
-		// TODO: paginate
 		return view('project.media', [
 			'project' => $project,
-			'media' => $project->media()->orderBy('created_at', 'desc')->get()
+			'media' => $project->media()->orderBy('created_at', 'desc')->paginate(env('PAGINATION_MAX_MEDIA'))
 		]);
 	}
 

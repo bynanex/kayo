@@ -1,0 +1,79 @@
+aside.user-info {
+	padding-bottom: 25px;
+
+	img.user-avatar {
+		border-radius: 0;
+		margin-bottom: 10px;
+	}
+
+	span.user-name {
+		display: block;
+		font-size: 26px;
+	}
+
+	ul.user-metadata {
+		padding: 0;
+		font-size: 14px;
+		list-style: none;
+
+		li {
+			display: inline-block;
+
+			@media (min-width: @breakpoint-lg) {
+				display: block;
+			}
+
+			&:not(:last-child) {
+				margin-right: 15px;
+				margin-bottom: 0;
+
+				@media (min-width: @breakpoint-lg) {
+					margin-right: 0;
+					margin-bottom: 8px;
+				}
+			}
+		}
+	}
+}
+
+section.user-content {
+	nav.user-profile {
+		margin-bottom: 30px;
+
+		a {
+			display: inline-block;
+			font-size: 14px;
+			color: #a5a5a5;
+			padding: 15px 10px;
+			margin-right: 25px;
+
+			&:hover, &:active {
+				border-bottom: 1px #eaeaea solid;
+			}
+
+			&.active {
+				color: #000;
+				border-bottom: 1px #9581bb solid;
+			}
+		}
+	}
+
+	div.user-projects {
+		span.title {
+			display: block;
+			font-family: @light-font;
+			font-size: 24px;
+			margin-bottom: 5px;
+		}
+
+		span.summary {
+			display: block;
+			margin-bottom: 15px;
+			font-size: 14px;
+		}
+
+		ul.metadata {
+			font-size: 12px;
+		}
+	}
+}

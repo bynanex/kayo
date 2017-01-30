@@ -17,6 +17,8 @@ Route::get('/', function () {
 	]);
 });
 
+Route::get('/u/{user}', 'UserController@profile')->name('profile');
+
 Route::get('/{project}', 'ProjectController@overview')->name('overview');
 Route::get('/{project}/maintainers', 'ProjectController@maintainers')->name('overview');
 

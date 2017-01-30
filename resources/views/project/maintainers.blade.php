@@ -5,7 +5,7 @@
 	<ul>
 	@foreach ($project->maintainers as $maintainer)
 		<li>
-			<a href="#">
+			<a href="{{ action('UserController@profile', [$maintainer]) }}">
 				{{ $maintainer->display_name }}
 			</a>
 		</li>

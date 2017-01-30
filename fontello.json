@@ -78,6 +78,18 @@
       "css": "mail",
       "code": 59404,
       "src": "entypo"
+    },
+    {
+      "uid": "d870630ff8f81e6de3958ecaeac532f2",
+      "css": "chevron-left",
+      "code": 59402,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
+      "css": "chevron-right",
+      "code": 59405,
+      "src": "fontawesome"
     }
   ]
 }

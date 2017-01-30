@@ -48,6 +48,13 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'avatars' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/users/avatars'),
+            'url' => env('USER_AVATARS_URL'),
+            'visibility' => 'public',
+        ],
+
         'logos' => [
             'driver' => 'local',
             'root' => storage_path('app/public/projects/logos'),

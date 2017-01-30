@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Storage;
+
 class User extends Authenticatable
 {
 	use Notifiable;
@@ -28,6 +30,15 @@ class User extends Authenticatable
 	];
 
 	/**
+	 * Get the route key for the model.
+	 *
+	 * @return string
+	 */
+	public function getRouteKeyName() {
+		return 'name';
+	}
+
+	/**
 	 * Get the projects owned by this user.
 	 */
 	public function projects()
@@ -49,5 +60,26 @@ class User extends Authenticatable
 	public function files()
 	{
 		return $this->hasManyThrough('App\File', 'App\Release', 'author_id', 'uploader_id');
+	}
+
+	/**
+	 * Check if this user has an avatar.
+	 *
+	 * @return boolean
+	 */
+	public function getDoesAvatarExistAttribute() {
+		return Storage::disk('avatars')->exists($this->avatar);
+	}
+
+	/**
+	 * Get a URL to the avatar for this user.
+	 *
+	 * @return string
+	 */
+	public function getAvatarUrlAttribute() {
+		if (!$this->doesAvatarExist)
+			return config('filesystems.disks.avatars.url').'/default.png';
+
+		return config('filesystems.disks.avatars.url').'/'.$this->avatar;
 	}
 }

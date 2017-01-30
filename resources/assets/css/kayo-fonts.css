@@ -67,3 +67,6 @@
 .icon-warning:before { content: '\e806'; }
 .icon-clock:before { content: '\e807'; }
 .icon-question:before { content: '\e808'; }
+.icon-location:before { content: '\e809'; }
+.icon-link:before { content: '\e80b'; }
+.icon-mail:before { content: '\e80c'; }

@@ -1,6 +1,4 @@
 aside.user-info {
-	padding-bottom: 25px;
-
 	img.user-avatar {
 		border-radius: 0;
 		margin-bottom: 10px;
@@ -39,6 +37,11 @@ aside.user-info {
 section.user-content {
 	nav.user-profile {
 		margin-bottom: 30px;
+		text-align: center;
+
+		@media (min-width: @breakpoint-lg) {
+			text-align: left;
+		}
 
 		a {
 			display: inline-block;
@@ -61,8 +64,7 @@ section.user-content {
 	div.user-projects {
 		span.title {
 			display: block;
-			font-family: @light-font;
-			font-size: 24px;
+			font-size: 20px;
 			margin-bottom: 5px;
 		}
 

@@ -18,6 +18,14 @@ class Media extends Model
 	}
 
 	/**
+	 * Get the user who uploaded this media.
+	 */
+	public function uploader()
+	{
+		return $this->belongsTo('App\User');
+	}
+
+	/**
 	 * Determines whether this media object is an image.
 	 *
 	 * @return boolean

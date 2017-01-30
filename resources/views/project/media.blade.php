@@ -18,13 +18,38 @@
 		
 		<div class="container">
 			<main>
-				<div class="card-columns">
+				<div class="row"> 
 				@foreach ($project->media as $media)
-					<div class="card">
-						<a href="{{ action('MediaController@view', [$project, $media]) }}">
-							<img class="card-img-top img-fluid" src="{{ $media->thumbnailUrl }}">
-						</a>
-					</div>
+					<figure class="col-lg-4 col-md-6 col-xs-12 media-item">
+						<div class="container">
+							<a href="{{ action('MediaController@view', [$project, $media]) }}">
+								<div class="embed-responsive embed-responsive-16by9" style="background-image: url('{{ $media->thumbnailUrl }}');">
+								</div>
+							</a>
+						</div>
+						
+						<figcaption>
+							<span class="title">
+								<a href="{{ action('MediaController@view', [$project, $media]) }}">
+									{{ $media->title }}
+								</a>
+							</span>
+							
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<i class="icon-user"></i> {{ $media->uploader->display_name }}
+								</li>
+
+								<li class="list-inline-item">
+									<i class="icon-clock"></i>
+
+									<time datetime="{{ $media->created_at }}" title="{{ $media->created_at }}">
+										{{ $media->created_at->diffForHumans() }}
+									</time>
+								</li>
+							</ul>
+						</figcaption>
+					</figure>
 				@endforeach
 				</div>
 			</main>

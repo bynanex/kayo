@@ -1,5 +1,11 @@
 @extends('templates.pages.project')
 
+@if (!$page->exists)
+	@section('title', $project->name.' Wiki')
+@else
+	@section('title', $page->title.' · '.$project->name.' Wiki')
+@endif
+
 @section('content')
 @if (isset($empty) && $empty)
 	@include('errors.wiki.empty')

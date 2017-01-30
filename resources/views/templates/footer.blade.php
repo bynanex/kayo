@@ -1,6 +1,6 @@
 @section('footer')
 <p class="float-left">
-	&copy; 2017, aixxe.net
+	&copy; 2017, {{ config('app.name') }}
 </p>
 
 <div class="float-right">

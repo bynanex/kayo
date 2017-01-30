@@ -1,5 +1,7 @@
 @extends('templates.pages.project')
 
+@section('title', $media->title.' · '.$project->name)
+
 @section('content')
 	<div class="img-thumbnail" style="border-radius: 0;">
 	@if ($media->isImage)

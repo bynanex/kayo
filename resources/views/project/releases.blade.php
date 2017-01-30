@@ -1,5 +1,7 @@
 @extends('templates.pages.project')
 
+@section('title', 'Releases · '.$project->name)
+
 @section('content')
 @if ($releases->count() == 0)
 	@include('errors.releases.empty')

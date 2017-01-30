@@ -1,5 +1,7 @@
 @extends('templates.pages.project')
 
+@section('title', 'Media · '.$project->name)
+
 @section('content')
 @if ($media->count() == 0)
 	@include('errors.media.empty')

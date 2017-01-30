@@ -1,9 +1,9 @@
 <section class="error-container">
     <span class="icon-media error-icon text-muted"></span>
 
-    <h1>The wiki is empty!</h1>
+    <h1>There's nothing here!</h1>
     
     <small class="text-muted">
-        There's nothing to see here..
+        No media has been uploaded for this project.
     </small>
 </section>

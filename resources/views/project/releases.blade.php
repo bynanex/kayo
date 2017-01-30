@@ -1,6 +1,9 @@
 @extends('templates.pages.project')
 
 @section('content')
+@if ($releases->count() == 0)
+	@include('errors.releases.empty')
+@else
 	@foreach ($releases as $release)
 	{{-- skip releases with no files --}}
 	@if ($release->files->count() == 0)
@@ -85,4 +88,5 @@
 		</div>
 	</div>
 	@endforeach
+@endif
 @endsection

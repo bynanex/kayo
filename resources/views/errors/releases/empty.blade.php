@@ -1,7 +1,7 @@
 <section class="error-container">
-    <span class="icon-media error-icon text-muted"></span>
+    <span class="icon-release error-icon text-muted"></span>
 
-    <h1>The wiki is empty!</h1>
+    <h1>No releases found!</h1>
     
     <small class="text-muted">
         There's nothing to see here..

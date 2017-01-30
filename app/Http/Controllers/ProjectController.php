@@ -52,7 +52,8 @@ class ProjectController extends Controller
 	{
 		// TODO: paginate
 		return view('project.media', [
-			'project' => $project
+			'project' => $project,
+			'media' => $project->media()->orderBy('created_at', 'desc')->get()
 		]);
 	}
 

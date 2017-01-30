@@ -27,7 +27,7 @@
 			
 			<main>
 				<div class="card-columns">
-				@foreach (App\Project::all() as $project)
+				@foreach ($projects as $project)
 					<div class="card">
 						@if ($project->bannerUrl)
 						<a href="{{ action('ProjectController@overview', [$project->slug]) }}">
@@ -55,6 +55,26 @@
 					</div>
 				@endforeach
 				</div>
+
+				@if ($projects->lastPage() > 1)
+				    <nav class="page-navigation">
+				        @if ($projects->currentPage() !== 1)
+				            <a title="Previous page" href="{{ $projects->previousPageUrl() }}">
+				                <span class="icon-chevron-left"></span>
+				            </a>
+				        @endif
+				        
+				        <span class="separator">
+				            PAGE {{ $projects->currentPage() }} OF {{ $projects->lastPage() }}
+				        </span>
+				        
+				        @if ($projects->hasMorePages())
+				            <a title="Next page" href="{{ $projects->nextPageUrl() }}">
+				                <span class="icon-chevron-right"></span>
+				            </a>
+				        @endif
+				    </nav>
+				@endif
 			</main>
 			
 			<footer>

@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-	return view('index');
+	return view('index', [
+		'projects' => App\Project::paginate(15)
+	]);
 });
 
 Route::get('/{project}', 'ProjectController@overview')->name('overview');

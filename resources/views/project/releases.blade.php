@@ -1,110 +1,88 @@
-@include('templates.header')
-@include('templates.footer')
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>kayo</title>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="{{ elixir('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
-		<link href="{{ elixir('css/app.css') }}" rel="stylesheet" type="text/css">
-		<style type="text/css">
-			@stack('styles-inline')
-		</style>
-	</head>
-	<body>
-		<header class="immersive">
-			@yield('header')
-		</header>
-		
-		<div class="container">
-			<main>
-				@foreach ($releases as $release)
-				{{-- skip releases with no files --}}
-				@if ($release->files->count() == 0)
-					@continue
-				@endif
+@extends('templates.pages.project')
 
-				<div class="row">
-					<div class="col-sm-12 col-lg-2 text-lg-right text-center">
-						<section class="release-sidebar">
-							<span class="badge {{ $release->badgeClass }}">
-								<i class="icon-warning"></i> {{ $release->type }}
-							</span>
-						</section>
-					</div>
-					
-					<div class="col">
-						<section class="release-header text-lg-left text-center">
-							{{ $release->name }} <span class="release-version">v{{ $release->version }}</span>
+@section('content')
+	@foreach ($releases as $release)
+	{{-- skip releases with no files --}}
+	@if ($release->files->count() == 0)
+		@continue
+	@endif
 
-							<ul class="release-info list-inline text-muted">
-								<li class="list-inline-item">
-									<i class="icon-user"></i> {{ $release->author->display_name }}
-								</li>
-
-								<li class="list-inline-item">
-									<i class="icon-clock"></i>
-
-									<time datetime="{{ $release->created_at }}" title="{{ $release->created_at }}">
-										{{ $release->created_at->diffForHumans() }}
-									</time>
-								</li>
-							</ul>
-						</section>
-
-						<section class="release-description">
-							<article>
-								{!! Markdown::convertToHtml($release->description) !!}
-							</article>
-						</section>
-
-						<section class="release-files">
-							<ul>
-								@foreach ($release->files as $file)
-									<li>
-										<div class="float-left">
-											<i class="icon-release"></i>
-
-											<a href="{{ action('ReleaseController@download', [$project, $release, $file]) }}">
-												{{ $file->filename }}
-											</a>
-										</div>
-
-										<div class="float-right text-muted">
-											{{ $file->formattedSize }}
-										</div>
-
-										<div class="clearfix"></div>
-
-										<div class="release-file-info text-muted">
-											<b>SHA-256:</b> {{ strtoupper($file->sha256sum) }}
-										</div>
-
-										<div class="release-file-info text-muted">
-											<b>Signed-by:</b> {{ $file->signed_by }} &mdash; 
-
-											<a href="{{ action('ReleaseController@signature', [$project, $release, $file]) }}">
-												<b>{{ $file->fingerprint }}</b>
-											</a>
-										</div>
-									</li>
-								@endforeach
-							</ul>
-
-							@if (!$loop->last)
-							<hr>
-							@endif
-						</section>
-					</div>
-				</div>
-				@endforeach
-			</main>
-			
-			<footer>
-				@yield('footer')
-			</footer>
+	<div class="row">
+		<div class="col-sm-12 col-lg-2 text-lg-right text-center">
+			<section class="release-sidebar">
+				<span class="badge {{ $release->badgeClass }}">
+					<i class="icon-warning"></i> {{ $release->type }}
+				</span>
+			</section>
 		</div>
-	</body>
-</html>
+		
+		<div class="col">
+			<section class="release-header text-lg-left text-center">
+				{{ $release->name }} <span class="release-version">v{{ $release->version }}</span>
+
+				<ul class="release-info list-inline text-muted">
+					<li class="list-inline-item">
+						<i class="icon-user"></i>
+
+						<a href="{{ action('UserController@profile', [$release->author]) }}">
+							{{ $release->author->display_name }}
+						</a>
+					</li>
+
+					<li class="list-inline-item">
+						<i class="icon-clock"></i>
+
+						<time datetime="{{ $release->created_at }}" title="{{ $release->created_at }}">
+							{{ $release->created_at->diffForHumans() }}
+						</time>
+					</li>
+				</ul>
+			</section>
+
+			<section class="release-description">
+				<article>
+					{!! Markdown::convertToHtml($release->description) !!}
+				</article>
+			</section>
+
+			<section class="release-files">
+				<ul>
+					@foreach ($release->files as $file)
+						<li>
+							<div class="float-left">
+								<i class="icon-release"></i>
+
+								<a href="{{ action('ReleaseController@download', [$project, $release, $file]) }}">
+									{{ $file->filename }}
+								</a>
+							</div>
+
+							<div class="float-right text-muted">
+								{{ $file->formattedSize }}
+							</div>
+
+							<div class="clearfix"></div>
+
+							<div class="release-file-info text-muted">
+								<b>SHA-256:</b> {{ strtoupper($file->sha256sum) }}
+							</div>
+
+							<div class="release-file-info text-muted">
+								<b>Signed-by:</b> {{ $file->signed_by }} &mdash; 
+
+								<a href="{{ action('ReleaseController@signature', [$project, $release, $file]) }}">
+									<b>{{ $file->fingerprint }}</b>
+								</a>
+							</div>
+						</li>
+					@endforeach
+				</ul>
+
+				@if (!$loop->last)
+				<hr>
+				@endif
+			</section>
+		</div>
+	</div>
+	@endforeach
+@endsection

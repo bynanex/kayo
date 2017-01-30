@@ -90,6 +90,12 @@
       "css": "chevron-right",
       "code": 59405,
       "src": "fontawesome"
+    },
+    {
+      "uid": "3def559c3c39b8500882e02892b7daa8",
+      "css": "media",
+      "code": 59406,
+      "src": "entypo"
     }
   ]
 }

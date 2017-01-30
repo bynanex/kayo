@@ -51,7 +51,6 @@
 		<section class="user-content col-md-12 col-lg-9">
 			<nav class="user-profile">
 				<a href="#" class="list-inline-item active">Projects</a>
-				<a href="#" class="list-inline-item">About</a>
 			</nav>
 
 			@foreach ($user->maintains()->orderBy('updated_at', 'desc')->get() as $project)

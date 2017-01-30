@@ -48,7 +48,10 @@ section.user-content {
 			font-size: 14px;
 			color: #a5a5a5;
 			padding: 15px 10px;
-			margin-right: 25px;
+			
+			&:not(:last-child) {
+				margin-right: 25px;
+			}
 
 			&:hover, &:active {
 				border-bottom: 1px #eaeaea solid;

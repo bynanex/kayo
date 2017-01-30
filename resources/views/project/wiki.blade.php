@@ -51,7 +51,13 @@
 
 								{{-- add 'last edited X ago by Y' note if applicable --}}
 								@if ($page->updated_at > $page->created_at)
-									&mdash; last edited <span title="{{ $page->updated_at }}">{{ $page->updated_at->diffForHumans() }}</span> by {{ $page->last_editor->display_name }}
+									&mdash; last edited
+
+									<time datetime="{{ $page->updated_at }}" title="{{ $page->updated_at }}">
+										{{ $page->updated_at->diffForHumans() }}
+									</time>
+
+									by {{ $page->last_editor->display_name }}
 								@endif
 							</small>
 						</header>

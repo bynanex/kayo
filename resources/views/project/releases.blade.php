@@ -47,9 +47,9 @@
 								<li class="list-inline-item">
 									<i class="icon-clock"></i>
 
-									<span title="{{ $release->created_at }}">
+									<time datetime="{{ $release->created_at }}" title="{{ $release->created_at }}">
 										{{ $release->created_at->diffForHumans() }}
-									</span>
+									</time>
 								</li>
 							</ul>
 						</section>

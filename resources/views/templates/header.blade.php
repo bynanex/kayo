@@ -33,7 +33,7 @@
 			<li class="list-inline-item">
 				<i class="icon-group"></i>
 
-				<a href="#">
+				<a href="{{ action('ProjectController@maintainers', [$project]) }}">
 					{{ $project->maintainers->count(). ' '.str_plural('maintainer', $project->maintainers->count()) }}
 				</a>
 			</li>

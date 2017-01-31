@@ -24,6 +24,7 @@ class CreateProjectsTable extends Migration
             $table->string('summary', 128)->unique();
             $table->text('description');
             $table->string('language', 32);
+            $table->string('repo_url');
             $table->timestamps();
         });
     }

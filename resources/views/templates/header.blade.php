@@ -37,6 +37,15 @@
 					{{ $project->maintainers->count(). ' '.str_plural('maintainer', $project->maintainers->count()) }}
 				</a>
 			</li>
+
+			{{-- 'open source' (when repo_url is set) --}}
+			<li class="list-inline-item">
+				<i class="icon-fork"></i>
+
+				<a href="{{ action('ProjectController@releases', [$project]) }}">
+					Open source
+				</a>
+			</li>
 		</ul>
 	</div>
 </section>

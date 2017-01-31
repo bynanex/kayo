@@ -2,10 +2,46 @@
 
 @section('title', 'Releases · '.$project->name)
 
+@section('git-clone')
+	<div class="row">
+		<div class="col-sm-12 col-lg-2 text-lg-right text-center">
+			<section class="release-sidebar">
+				<span class="badge">
+					<i class="icon-fork"></i> Git
+				</span>
+			</section>
+		</div>
+		
+		<div class="col">
+			<section class="release-header text-lg-left text-center">
+				{{ $project->name }}
+			</section>
+
+			<section class="release-files text-muted text-lg-left text-center">
+				<ul>
+					<li>
+						<i class="icon-fork"></i>
+
+						{{ $project->repo_url }}
+					</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+@endsection
+
 @section('content')
 @if ($releases->count() == 0)
-	@include('errors.releases.empty')
+	@if ($project->repo_url)
+		@yield('git-clone')
+	@else
+		@include('errors.releases.empty')
+	@endif
 @else
+	@yield('git-clone')
+	
+	<hr>
+
 	@foreach ($releases as $release)
 	{{-- skip releases with no files --}}
 	@if ($release->files->count() == 0)

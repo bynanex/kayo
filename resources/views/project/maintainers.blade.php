@@ -11,11 +11,11 @@
 				<img class="d-flex mr-3 img-thumbnail" src="{{ $maintainer->avatarUrl }}" style="width: 48px; border-radius: 0; padding: 2px;">
 				
 				<div class="media-body">
-					<a style="font-size: 14px;" href="{{ action('UserController@profile', [$maintainer]) }}">
+					<a style="font-size: 16px; font-weight: 600;" href="{{ action('UserController@profile', [$maintainer]) }}">
 						{{ $maintainer->display_name }}
 					</a>
 
-					<ul class="list-inline text-muted" style="font-size: 12px;">
+					<ul class="list-inline text-muted" style="font-size: 14px;">
 						@if ($maintainer->location)
 						<li class="list-inline-item">
 							<i class="icon-location"></i> {{ $maintainer->location }}

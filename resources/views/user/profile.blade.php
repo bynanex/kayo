@@ -12,9 +12,9 @@
 					{{ $user->display_name }}
 				</span>
 
-				<small class="text-muted">
+				<p class="text-muted">
 					{{ $user->bio }}
-				</small>
+				</p>
 			</div>
 
 			<hr>

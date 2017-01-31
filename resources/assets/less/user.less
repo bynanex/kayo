@@ -7,6 +7,11 @@ aside.user-info {
 	span.user-name {
 		display: block;
 		font-size: 26px;
+		font-weight: 600;
+	}
+
+	p {
+		font-size: 14px;
 	}
 
 	ul.user-metadata {
@@ -67,18 +72,22 @@ section.user-content {
 	div.user-projects {
 		span.title {
 			display: block;
-			font-size: 20px;
+			font-size: 22px;
 			margin-bottom: 5px;
 		}
 
 		span.summary {
 			display: block;
 			margin-bottom: 15px;
-			font-size: 14px;
+			font-size: 16px;
 		}
 
 		ul.metadata {
-			font-size: 12px;
+			font-size: 14px;
+			
+			.list-inline-item:not(:last-child) {
+				margin-right: 10px;
+			}
 		}
 	}
 }

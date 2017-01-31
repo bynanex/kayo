@@ -18,7 +18,7 @@
 	</div>
 
 	<div style="margin-top: 10px;">
-		<div style="font-size: 28px; font-family: 'Roboto Light';">
+		<div style="font-size: 28px; font-family: 'Source Sans Pro'; font-weight: 300;">
 			{{ $media->title }}
 		</div>
 

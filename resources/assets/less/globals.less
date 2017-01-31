@@ -1,6 +1,6 @@
 /* general bootstrap overrides */
 body {
-	font-family: @regular-font, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-family: @primary-regular-font, @secondary-regular-font, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 	background: @background;
 }
 
@@ -13,7 +13,7 @@ a {
 	}
 }
 
-.main-font { font-family: @regular-font; }
+.main-font { font-family: @primary-regular-font; }
 
 h1, .h1 { font-size: 2rem; }
 h2, .h2 { font-size: 1.75rem; }
@@ -50,4 +50,24 @@ article {
 		max-width: 100%;
 		height: auto;
 	}
+}
+
+footer {
+	font-size: 13px;
+	color: #757575;
+
+	.list-inline-item {
+		a {
+			color: #505050;
+		}
+
+		&:not(:last-child) {
+			margin-right: 0px;
+
+			&::after {
+				content: '\2022';
+				margin: 0 7px;
+			}
+		}
+	}	
 }

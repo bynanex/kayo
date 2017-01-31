@@ -27,6 +27,7 @@ header.index {
 }
 
 header.immersive {
+	font-family: @secondary-regular-font;
 	background: 0 50% no-repeat @header-immersive-background;
 	background-size: cover;
 	color: #FFF;
@@ -34,7 +35,7 @@ header.immersive {
 
 	div.title {
 		font-size: 18px;
-		font-family: @light-font;
+		font-weight: 300;
 		padding-top: 20px;
 		margin-bottom: 7px;
 
@@ -138,24 +139,4 @@ main {
 			color: #7b7b7b;
 		}
 	}
-}
-
-footer {
-	font-size: 12px;
-	color: #757575;
-
-	.list-inline-item {
-		a {
-			color: #505050;
-		}
-
-		&:not(:last-child) {
-			margin-right: 0px;
-
-			&::after {
-				content: '\2022';
-				margin: 0 7px;
-			}
-		}
-	}	
 }

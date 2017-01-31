@@ -3,7 +3,7 @@
 
     <h1>No releases found!</h1>
     
-    <small class="text-muted">
+    <p class="text-muted">
         There's nothing to see here..
-    </small>
+    </p>
 </section>

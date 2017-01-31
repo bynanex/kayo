@@ -3,7 +3,7 @@
 
     <h1>The wiki is empty!</h1>
     
-    <small class="text-muted">
+    <p class="text-muted">
         There's nothing to see here..
-    </small>
+    </p>
 </section>

@@ -3,7 +3,7 @@
 
     <h1>There's nothing here!</h1>
     
-    <small class="text-muted">
+    <p class="text-muted">
         No media has been uploaded for this project.
-    </small>
+    </p>
 </section>

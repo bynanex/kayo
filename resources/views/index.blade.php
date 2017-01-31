@@ -17,9 +17,7 @@
 					</a>
 				</h4>
 
-				<small class="card-text">
-					<p>{{ $project->summary }}</p>
-				</small>
+				<p class="summary">{{ $project->summary }}</p>
 
 				<div>
 					<small class="text-muted">

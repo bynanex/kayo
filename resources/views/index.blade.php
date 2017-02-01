@@ -19,11 +19,13 @@
 
 				<p class="summary">{{ $project->summary }}</p>
 
+				@if ($project->releases->count() >= 1)
 				<div>
 					<small class="text-muted">
 						<i class="icon-release"></i> {{ $project->releases->count(). ' '.str_plural('release', $project->releases->count()) }}
 					</small>
 				</div>
+				@endif
 			</div>
 		</div>
 	@endforeach

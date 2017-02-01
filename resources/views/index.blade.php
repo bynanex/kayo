@@ -1,6 +1,9 @@
 @extends('templates.pages.generic')
 
 @section('content')
+@if ($projects->count() == 0)
+	@include('errors.index.empty')
+@else
 <div class="card-columns">
 	@foreach ($projects as $project)
 		<div class="card">
@@ -50,4 +53,5 @@
 			@endif
 		</nav>
 	@endif
+@endif
 @endsection

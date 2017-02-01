@@ -39,6 +39,7 @@
 			</li>
 
 			{{-- 'open source' (when repo_url is set) --}}
+			@if ($project->repo_url)
 			<li class="list-inline-item">
 				<i class="icon-fork"></i>
 
@@ -46,6 +47,7 @@
 					Open source
 				</a>
 			</li>
+			@endif
 		</ul>
 	</div>
 </section>

@@ -12,7 +12,7 @@
 @else
 	<div class="row">
 		@php
-			$highlighted = App\WikiPage::whereHighlighted(1)->get();
+			$highlighted = $project->pages()->whereHighlighted(1)->get();
 		@endphp
 
 		{{-- navigation sidebar --}}
@@ -29,7 +29,7 @@
 		@endif
 
 		{{-- actual page --}}
-		<div class="col">
+		<div class="{{ $highlighted->count() >= 1 ? 'col-md-12 col-lg-9': 'col-12' }}">
 			{{-- page header --}}
 			<header class="text-center text-lg-left">
 				<h1 class="main-font">{{ $page->title }}</h1>

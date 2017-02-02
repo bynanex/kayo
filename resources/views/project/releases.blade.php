@@ -52,7 +52,7 @@
 		<div class="col-sm-12 col-lg-2 text-lg-right text-center">
 			<section class="release-sidebar">
 				<span class="badge {{ $release->badgeClass }}">
-					<i class="icon-warning"></i> {{ $release->type }}
+					<i class="{{ $release->type == "Stable" ? 'icon-release': 'icon-warning' }}"></i> {{ $release->type }}
 				</span>
 			</section>
 		</div>

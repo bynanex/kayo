@@ -104,10 +104,10 @@ class Media extends Model
 	 */
 	public function getThumbnailURLAttribute() {
 		if (!$this->doesThumbnailExist)
-			if ($this->isImage)
-				return config('filesystems.disks.media.url').'/thumbnails/default_image.png';
-			else if ($this->isVideo)
+			if ($this->isVideo)
 				return config('filesystems.disks.media.url').'/thumbnails/default_video.png';
+			else
+				return config('filesystems.disks.media.url').'/thumbnails/default_image.png';
 
 		return config('filesystems.disks.media.url').'/thumbnails/'.$this->thumbnail.'.jpg';
 	}

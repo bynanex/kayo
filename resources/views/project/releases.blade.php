@@ -109,10 +109,9 @@
 							</div>
 
 							<div class="release-file-info text-muted">
-								<b>Signed-by:</b> {{ $file->signed_by }} &mdash; 
+								<b>Signed-by:</b> 
 
-								<a href="{{ action('ReleaseController@signature', [$project, $release, $file]) }}">
-									<b>{{ $file->fingerprint }}</b>
+								<a href="{{ action('ReleaseController@signature', [$project, $release, $file]) }}">								{{ $file->signed_by }} &mdash; <b>{{ $file->fingerprint }}</b>
 								</a>
 							</div>
 						</li>

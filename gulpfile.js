@@ -15,8 +15,7 @@ require('laravel-elixir-vue-2');
 
 elixir((mix) => {
     mix.less('app.less');
-    mix.styles('bootstrap.css');
-
+    
     mix.copy('resources/assets/img', 'public/img');
     mix.copy('resources/assets/fonts', 'public/build/fonts');
 

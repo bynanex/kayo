@@ -21,6 +21,7 @@ class CreateProjectsTable extends Migration
             $table->string('slug', 64)->unique();
             $table->string('logo', 128);
             $table->string('banner', 128);
+            $table->string('banner_thumbnail', 128);
             $table->string('summary', 128)->unique();
             $table->text('description');
             $table->string('language', 32);

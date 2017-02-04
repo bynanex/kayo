@@ -7,9 +7,9 @@
 <div class="card-columns">
 	@foreach ($projects as $project)
 		<div class="card">
-			@if ($project->bannerUrl)
+			@if ($project->doesBannerThumbnailExist || $project->bannerUrl)
 			<a href="{{ action('ProjectController@overview', [$project->slug]) }}">
-				<img class="card-img-top img-fluid" src="{{ $project->bannerUrl }}" alt="{{ $project->name}}">
+				<img class="card-img-top img-fluid" src="{{ $project->doesBannerThumbnailExist ? $project->bannerThumbnailUrl: $project->bannerUrl }}" alt="{{ $project->name}}">
 			</a>
 			@endif
 

@@ -76,6 +76,18 @@ class Project extends Model
 	}
 
 	/**
+	 * Check if a custom banner thumbnail has been uploaded for this project.
+	 *
+	 * @return boolean
+	 */
+	public function getDoesBannerThumbnailExistAttribute() {
+		if (!$this->banner_thumbnail)
+			return false;
+		
+		return Storage::disk('banners')->exists('thumbnails/'.$this->banner_thumbnail);
+	}
+
+	/**
 	 * Get the logo URL for this project.
 	 *
 	 * @return string
@@ -91,5 +103,14 @@ class Project extends Model
 	 */
 	public function getBannerUrlAttribute() {
 		return $this->doesBannerExist ? config('filesystems.disks.banners.url').'/'.$this->banner: '';
+	}
+
+	/**
+	 * Get the banner thumbnail URL for this project.
+	 *
+	 * @return string
+	 */
+	public function getBannerThumbnailUrlAttribute() {
+		return $this->doesBannerThumbnailExist ? config('filesystems.disks.banners.url').'/thumbnails/'.$this->banner_thumbnail: '';
 	}
 }

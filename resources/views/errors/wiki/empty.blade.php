@@ -1,5 +1,5 @@
 <section class="error-container">
-    <span class="icon-media error-icon text-muted"></span>
+    <span class="icon-book error-icon text-muted"></span>
 
     <h1>The wiki is empty!</h1>
     

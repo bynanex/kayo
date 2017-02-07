@@ -20,7 +20,9 @@ class CreateReleasesTable extends Migration
             $table->integer('author_id')->unsigned();
             $table->foreign('author_id')->references('id')->on('users');
             $table->string('name');
+            $table->text('description');
             $table->string('version', 64);
+            $table->enum('type', ['Stable', 'Experimental', 'Nightly']);
             $table->timestamps();
         });
     }

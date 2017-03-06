@@ -7,28 +7,38 @@
 <div class="card-columns">
 	@foreach ($projects as $project)
 		<div class="card">
-			@if ($project->doesBannerThumbnailExist || $project->bannerUrl)
-			<a href="{{ action('ProjectController@overview', [$project->slug]) }}">
-				<img class="card-img-top img-fluid" src="{{ $project->doesBannerThumbnailExist ? $project->bannerThumbnailUrl: $project->bannerUrl }}" alt="{{ $project->name}}">
-			</a>
-			@endif
+			<div class="tile" style="background-image: url('{{ $project->doesBannerThumbnailExist ? $project->bannerThumbnailUrl: $project->bannerUrl }}');">
+				<a href="{{ action('ProjectController@overview', [$project]) }}">
+					<div class="overlay"></div>
+				</a>
 
-			<div class="card-block">
-				<h4 class="card-title">
-					<a href="{{ action('ProjectController@overview', [$project->slug]) }}">
-						{{ $project->name }}
-					</a>
-				</h4>
+				<div class="info">
+					@if ($project->releases->count() >= 1 || $project->language)
+					<div class="icons">
+						<ul class="list-inline">
+							@if ($project->releases->count() >= 1)
+								<li class="list-inline-item">
+									<i class="icon-release"></i> {{ $project->releases->count(). ' '.str_plural('release', $project->releases->count()) }}
+								</li>
+							@endif
 
-				<p class="summary">{{ $project->summary }}</p>
+							@if ($project->language)
+								<li class="list-inline-item">
+									<i class="icon-gear"></i> {{ $project->language }}
+								</li>
+							@endif
+						</ul>
+					</div>
+					@endif
 
-				@if ($project->releases->count() >= 1)
-				<div>
-					<small class="text-muted">
-						<i class="icon-release"></i> {{ $project->releases->count(). ' '.str_plural('release', $project->releases->count()) }}
-					</small>
+					<div class="content">
+						<span class="title">
+							{{ $project->name }}
+						</span>
+
+						<p class="summary">{{ $project->summary }}</p>
+					</div>
 				</div>
-				@endif
 			</div>
 		</div>
 	@endforeach
